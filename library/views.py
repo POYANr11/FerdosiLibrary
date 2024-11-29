@@ -1,34 +1,41 @@
+from django.views.generic import TemplateView, ListView, DetailView, FormView
+from django.urls import reverse_lazy
 from django.contrib import messages
-from django.shortcuts import render
-
-from library.forms import BookRequestForm
-
-
-def home(request):
-    return render(request, "home.html")
+from django.shortcuts import get_object_or_404
+from .models import Book
+from .forms import BookRequestForm
 
 
-def about(request):
-    return render(request, "about.html")
+class HomeView(TemplateView):
+    template_name = "home.html"
 
 
-def book_request(request):
-    return render(request, "book_request.html")
+class AboutView(TemplateView):
+    template_name = "about.html"
 
 
-def books(request):
-    return render(request, "books.html")
+class BooksListView(ListView):
+    model = Book
+    template_name = "books.html"
+    context_object_name = "books"
 
 
-def book_request_view(request):
-    if request.method == 'POST':
-        form = BookRequestForm(request.POST)
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'درخواست شما با موفقیت ثبت شد!')
-            return render(request, 'book_request.html', {"counter": 1})
-        else:
-            return render(request, 'book_request.html', {'form': form})
-    else:
-        form = BookRequestForm()
-    return render(request, 'book_request.html', {'form': form})
+class BookDetailView(DetailView):
+    model = Book
+    template_name = "book_detail.html"
+    context_object_name = "book"
+
+
+class BookRequestView(FormView):
+    template_name = "book_request.html"
+    form_class = BookRequestForm
+    success_url = reverse_lazy("book_request")
+
+    def form_valid(self, form):
+        form.save()  # ذخیره فرم در دیتابیس
+        messages.success(self.request, 'درخواست شما با موفقیت ثبت شد!')
+        return super().form_valid(form)
+
+    def form_invalid(self, form):
+        messages.error(self.request, 'لطفاً فرم را به‌درستی پر کنید.')
+        return self.render_to_response(self.get_context_data(form=form))

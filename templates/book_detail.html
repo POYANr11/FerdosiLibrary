@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<body>
+    <header>
+        <h1>جزئیات کتاب</h1>
+    </header>
+    <main>
+        <div class="book-detail-container">
+            <div class="book-info">
+                <h2>{{ book.title }}</h2>
+                <p><strong>نویسنده:</strong> {{ book.author.name }}</p>
+                <p><strong>سال انتشار:</strong> {{ book.year }}</p>
+                <p><strong>ژانر:</strong> {{ book.genre }}</p>
+                <p><strong>وضعیت:</strong> 
+                    {% if book.status == 'a' %}
+                        در دسترس
+                    {% else %}
+                        امانت داده شده
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+        <a href="{% url 'books' %}" class="btn btn-back">بازگشت به لیست کتاب‌ها</a>
+    </main>
+</body>
+{% endblock %}

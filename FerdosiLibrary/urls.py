@@ -20,8 +20,9 @@ from library.views import *
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", home, name="home"),
-    path("about/", about, name="about"),
-    path("books/", books, name="books"),
-    path('book_request/', book_request_view, name='book_request'),
+    path("", HomeView.as_view(), name="home"),
+    path("about/", AboutView.as_view(), name="about"),
+    path("books/", BooksListView.as_view(), name="books"),
+    path("books/<int:pk>/", BookDetailView.as_view(), name="book_detail"),
+    path("book_request/", BookRequestView.as_view(), name="book_request"),
 ]

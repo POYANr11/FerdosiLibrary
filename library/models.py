@@ -2,7 +2,7 @@ from django.db import models
 
 LOAN_STATUS = (
     ('m', 'Maintenance'),
-    ('o', 'On loan'),
+    ('b', 'Borrowed'),
     ('a', 'Available'),
 )
 
@@ -40,3 +40,4 @@ class BookRequest(models.Model):
 
     def __str__(self):
         return f"{self.student_name} - {self.book_name}"
+

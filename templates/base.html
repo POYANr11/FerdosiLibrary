@@ -11,12 +11,14 @@
 <body>
     <header>
         <div class="header-container">
-            
             <h1>کتابخانه فردوسی</h1>
+        <div class="logo">
+                <img src="{% static 'images/ferdowsi.png' %}" alt="کتابخانه فردوسی" class="logo-img">
+            </div>
                 <nav>
                     <ul>
-                        {% if user.is_authenticated %} 
-                            <li><a href="admin/">پنل ادمین</a></li>
+                        {% if user.is_superuser %}
+                            <li><a href="/admin">پنل ادمین</a></li>
                         {% endif %}
                         <li><a href="{% url 'home' %}">صفحه اصلی</a></li>
                         <li><a href="{% url 'about' %}">درباره ما</a></li>
@@ -24,12 +26,9 @@
                         <li><a href="{% url 'books' %}">کتاب‌ها</a></li>
                     </ul>
                 </nav>
-            <div class="logo">
-                <img src="{% static 'images/ferdowsi.png' %}" alt="کتابخانه فردوسی" class="logo-img">
-            </div>
+            
         </div>
     </header>
-
     <main>
         {% block content %}{% endblock %}
     </main>

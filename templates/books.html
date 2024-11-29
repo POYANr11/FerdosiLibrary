@@ -1,12 +1,27 @@
 {% extends 'base.html' %}
 {% block title %}کتاب‌ها{% endblock %}
 {% block content %}
-<section class="books">
-    <h2>لیست کتاب‌ها</h2>
-    <ul>
-        <li>کتاب ۱</li>
-        <li>کتاب ۲</li>
-        <li>کتاب ۳</li>
-    </ul>
-</section>
+<body>
+    <main>
+        <div class="books-container">
+            {% for book in books %}
+                <div class="book-box">
+                    <div class="book-details">
+                        <h3 class="book-title">{{ book.title|truncatechars:20 }}</h3>
+                        <p class="book-author">نویسنده: {{ book.author.name }}</p>
+                        <p class="book-year">سال انتشار: {{ book.year }}</p>
+                        <p class="book-genre">ژانر: {{ book.genre }}</p>
+                        <p class="book-status">وضعیت: 
+                            {% if book.status == 'a' %}
+                                در دسترس
+                            {% else %}
+                                امانت داده شده
+                            {% endif %}</p>
+                        <a href="{% url 'book_detail' book.pk %}">جزئیات</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </main>
+</body>
 {% endblock %}
