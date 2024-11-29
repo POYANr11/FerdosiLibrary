@@ -10,8 +10,8 @@ LOAN_STATUS = (
 class Book(models.Model):
     title = models.CharField(max_length=100)
     author = models.ForeignKey('Author', on_delete=models.CASCADE, null=True)
-    year = models.IntegerField()
-    genre = models.ForeignKey('Genre', on_delete=models.CASCADE)
+    year = models.DateField()
+    category = models.ForeignKey('Category', on_delete=models.CASCADE)
     status = models.CharField(max_length=10, choices=LOAN_STATUS, default='a')
 
     def __str__(self):
@@ -25,7 +25,7 @@ class Author(models.Model):
         return self.name
 
 
-class Genre(models.Model):
+class Category(models.Model):
     name = models.CharField(max_length=100)
 
     def __str__(self):

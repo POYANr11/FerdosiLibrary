@@ -179,3 +179,7 @@ img {
     margin: 5px 0;
     color: #666;
 }
+
+a {
+    text-decoration-line: none;
+}
