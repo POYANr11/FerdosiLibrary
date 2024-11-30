@@ -27,3 +27,5 @@ urlpatterns = [
     path("book_request/", BookRequestView.as_view(), name="book_request"),
     path("login/", CustomLoginView.as_view(), name="login"),
 ]
+
+
