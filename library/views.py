@@ -1,9 +1,12 @@
-from django.views.generic import TemplateView, ListView, DetailView, FormView
-from django.urls import reverse_lazy
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.views import LoginView
+from django.views.generic import TemplateView, ListView, DetailView, FormView, View
+from django.urls import reverse_lazy, reverse
 from django.contrib import messages
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, render, redirect
 from .models import Book
-from .forms import BookRequestForm
+from .forms import *
 
 
 class HomeView(TemplateView):
@@ -26,16 +29,28 @@ class BookDetailView(DetailView):
     context_object_name = "book"
 
 
-class BookRequestView(FormView):
+class BookRequestView(LoginRequiredMixin, FormView):
     template_name = "book_request.html"
     form_class = BookRequestForm
-    success_url = reverse_lazy("book_request")
+    success_url = reverse_lazy("home")
+    login_url = reverse_lazy("login")
 
     def form_valid(self, form):
-        form.save()  # ذخیره فرم در دیتابیس
+        book_request = form.save(commit=False)
+        book_request.student = self.request.user
+        book_request.save()
         messages.success(self.request, 'درخواست شما با موفقیت ثبت شد!')
         return super().form_valid(form)
 
     def form_invalid(self, form):
         messages.error(self.request, 'لطفاً فرم را به‌درستی پر کنید.')
         return self.render_to_response(self.get_context_data(form=form))
+
+
+class CustomLoginView(LoginView):
+    template_name = 'login.html'
+    authentication_form = CustomAuthenticationForm
+
+    def get_success_url(self):
+        return reverse('home')
+

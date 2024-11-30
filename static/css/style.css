@@ -30,7 +30,7 @@ nav ul li a {
 
 nav ul li a:hover{
     color: black;
-    transition: color 500ms;
+    transition: color 300ms;
     text-decoration: none;
 }
 
@@ -74,6 +74,7 @@ h2 {
     transition: color 500ms;
 }
 
+input[type="password"],
 input[type="text"],
 input[type="number"],
 textarea,
@@ -89,6 +90,7 @@ select {
     transition: all 0.3s ease;
 }
 
+input[type="password"]:focus,
 input[type="text"]:focus,
 input[type="number"]:focus,
 textarea:focus,
@@ -115,11 +117,13 @@ button:hover {
 }
 
 input[type="text"].error,
+input[type="password"].error,
 input[type="number"].error {
     border-color: red;
 }
 
 input[type="text"].error:focus,
+input[type="password"].error:focus,
 input[type="number"].error:focus {
     border-color: darkred;
     box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
@@ -180,6 +184,7 @@ img {
     color: #666;
 }
 
-a {
+#detail_button{
     text-decoration-line: none;
+    color: #4CAF50;
 }

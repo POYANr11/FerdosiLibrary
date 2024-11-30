@@ -17,7 +17,7 @@
                             {% else %}
                                 امانت داده شده
                             {% endif %}</p>
-                        <a href="{% url 'book_detail' book.pk %}">جزئیات</a>
+                        <a id="detail_button" href="{% url 'book_detail' book.pk %}">جزئیات</a>
                     </div>
                 </div>
             {% endfor %}

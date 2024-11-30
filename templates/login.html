@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}ورود{% endblock %}
+{% block content %}
+
+    <div class="container">
+        <h2>ورود به سیستم</h2>
+        {% if form.non_field_errors %}
+            <div class="error-message">
+                {{ form.non_field_errors }}
+            </div>
+        {% endif %}
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">ورود</button>
+        </form>
+    </div>
+{% endblock %}
+

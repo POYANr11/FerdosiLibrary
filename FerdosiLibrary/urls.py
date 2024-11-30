@@ -25,4 +25,5 @@ urlpatterns = [
     path("books/", BooksListView.as_view(), name="books"),
     path("books/<int:pk>/", BookDetailView.as_view(), name="book_detail"),
     path("book_request/", BookRequestView.as_view(), name="book_request"),
+    path("login/", CustomLoginView.as_view(), name="login"),
 ]
