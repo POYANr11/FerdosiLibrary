@@ -22,8 +22,6 @@ class HomeView(TemplateView):
             )
             results = list(books.values('id', 'title', 'author__name'))
             return JsonResponse({'results': results})
-
-        # برای درخواست‌های غیر AJAX صفحه معمولی را نمایش بده
         return super().get(request, *args, **kwargs)
 
 
