@@ -15,5 +15,59 @@
         {{ form.as_p }}
         <button type="submit" class="btn btn-primary">ارسال درخواست</button>
     </form>
+
+    <!-- بخش نتایج جستجو -->
+    <div id="search-results" class="search-results"></div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function () {
+    $('#book-search').on('input', function () {
+        let query = $(this).val();
+        let resultsContainer = $('#search-results');
+
+        if (query.length >= 2) {  
+            $.ajax({
+                url: "{% url 'search-books' %}",
+                method: "GET",
+                data: { q: query },
+                success: function (response) {
+                    resultsContainer.empty(); // پاک کردن نتایج قبلی
+
+                    if (response.results.length > 0) {
+                        let list = $('<ul></ul>');
+                        response.results.forEach(function (book) {
+                            let item = `
+                                <li data-id="${book.id}" style="cursor: pointer; padding: 5px; border-bottom: 1px solid #ddd;">
+                                    <strong>${book.title}</strong><br>
+                                    <small>نویسنده: ${book.author__name}</small>
+                                </li>`;
+                            list.append(item);
+                        });
+                        resultsContainer.append(list);
+                        resultsContainer.show(); // مطمئن شوید که عنصر قابل مشاهده است
+                    } else {
+                        resultsContainer.html('<p>کتابی یافت نشد.</p>');
+                    }
+                },
+                error: function () {
+                    resultsContainer.html('<p>خطایی رخ داد. لطفاً دوباره تلاش کنید.</p>');
+                }
+            });
+        } else {
+            resultsContainer.empty(); // اگر متن کمتر از 3 کاراکتر شد، نتایج را پاک کن
+            resultsContainer.hide(); // مخفی کردن نتایج
+        }
+    });
+
+    // افزودن انتخاب کتاب به جستجوی تکمیل‌شده
+    $('#search-results').on('click', 'li', function () {
+        let selectedTitle = $(this).find('strong').text();
+        $('#book-search').val(selectedTitle);
+        $('#search-results').empty(); // پاک کردن نتایج
+        $('#search-results').hide(); // مخفی کردن لیست
+    });
+});
+</script>
 {% endblock %}

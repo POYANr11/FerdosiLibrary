@@ -12,8 +12,12 @@ class BookRequestForm(forms.ModelForm):
             'borrow_days': 'تعداد روزها',
         }
         widgets = {
-            'book_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'نام کتاب'}),
-            'borrow_days': forms.NumberInput(attrs={'class': 'form-control', 'min': 1, 'placeholder': 'تعداد روزها'}),
+            'book_name': forms.TextInput(attrs={
+                'class': 'form-control', 'placeholder': 'نام کتاب', "id": "book-search"
+            }),
+            'borrow_days': forms.NumberInput(attrs={
+                'class': 'form-control', 'min': 1, 'placeholder': 'تعداد روزها'
+            }),
         }
 
     def clean_borrow_days(self):

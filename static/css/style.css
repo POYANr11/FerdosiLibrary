@@ -188,3 +188,38 @@ img {
     text-decoration-line: none;
     color: #4CAF50;
 }
+
+.search-results {
+    position: absolute;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 80%;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+    padding: 10px;
+}
+
+.search-results ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.search-results li {
+    padding: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.search-results li:hover {
+    background: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+#messages ul {
+    background-color: #4CAF50;
+    color: white;
+}

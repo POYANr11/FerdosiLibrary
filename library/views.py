@@ -1,4 +1,3 @@
-from django.contrib.auth import authenticate, login
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView
 from django.db.models import Q
@@ -6,7 +5,6 @@ from django.http import JsonResponse
 from django.views.generic import TemplateView, ListView, DetailView, FormView, View
 from django.urls import reverse_lazy, reverse
 from django.contrib import messages
-from django.shortcuts import get_object_or_404, render, redirect
 from .models import Book
 from .forms import *
 
@@ -65,3 +63,14 @@ class CustomLoginView(LoginView):
 
     def get_success_url(self):
         return reverse('home')
+
+
+class BookSearchAjaxView(View):
+    def get(self, request, *args, **kwargs):
+        query = request.GET.get('q', '')  # مقدار جستجو
+        if query:
+            books = Book.objects.filter(
+                Q(title__icontains=query) | Q(author__name__icontains=query)
+            ).filter(Q(status='a')).values('id', 'title', 'author__name')
+            return JsonResponse({'results': list(books)}, safe=False)
+        return JsonResponse({'results': []})
