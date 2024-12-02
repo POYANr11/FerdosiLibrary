@@ -12,12 +12,12 @@
     </ul>
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
+        {{ form.book_name }}
+        <div id="search-results" class="search-results"></div>
+        {{ form.borrow_days }}
         <button type="submit" class="btn btn-primary">ارسال درخواست</button>
     </form>
-
-    <!-- بخش نتایج جستجو -->
-    <div id="search-results" class="search-results"></div>
+    
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

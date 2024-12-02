@@ -3,14 +3,19 @@
 {% block content %}
 <body>
     <main>
+        <label>
+            <input class="form-control" placeholder="نام کتاب یا نویسنده" id="book-search" type="text">
+        </label>
+        <div id="search-results" class="search-results"></div>
         <div class="books-container">
+            
             {% for book in books %}
                 <div class="book-box">
                     <div class="book-details">
                         <h3 class="book-title">{{ book.title|truncatechars:20 }}</h3>
                         <p class="book-author">نویسنده: {{ book.author.name }}</p>
                         <p class="book-year">سال انتشار: {{ book.year }}</p>
-                        <p class="book-genre">ژانر: {{ book.genre }}</p>
+                        <p class="book-genre">ژانر: {{ book.category }}</p>
                         <p class="book-status">وضعیت: 
                             {% if book.status == 'a' %}
                                 در دسترس
@@ -24,4 +29,54 @@
         </div>
     </main>
 </body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+    $(document).ready(function () {
+    $('#book-search').on('input', function () {
+        let query = $(this).val();
+        let resultsContainer = $('#search-results');
+
+        if (query.length >= 2) {
+            $.ajax({
+                url: "{% url 'search-books' %}",
+                method: "GET",
+                data: { q: query },
+                success: function (response) {
+                    resultsContainer.empty();
+
+                    if (response.results.length > 0) {
+                        let list = $('<ul></ul>');
+                        response.results.forEach(function (book) {
+                            let item = `
+                                <li data-id="${book.id}" style="cursor: pointer; padding: 5px; border-bottom: 1px solid #ddd;">
+                                    <strong>${book.title}</strong><br>
+                                    <small>نویسنده: ${book.author__name}</small>
+                                </li>`;
+                            list.append(item);
+                        });
+                        resultsContainer.append(list);
+                        resultsContainer.show();
+                    } else {
+                        resultsContainer.html('<p>کتابی یافت نشد.</p>');
+                    }
+                },
+                error: function () {
+                    resultsContainer.html('<p>خطایی رخ داد. لطفاً دوباره تلاش کنید.</p>');
+                }
+            });
+        } else {
+            resultsContainer.empty();
+            resultsContainer.hide();
+        }
+    });
+
+    // افزودن انتخاب کتاب به جستجوی تکمیل‌شده
+    $('#search-results').on('click', 'li', function () {
+        let selectedTitle = $(this).find('strong').text();
+        $('#book-search').val(selectedTitle);
+        $('#search-results').empty();
+        $('#search-results').hide();
+    });
+});
+</script>
 {% endblock %}

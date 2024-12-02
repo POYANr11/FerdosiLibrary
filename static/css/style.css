@@ -194,10 +194,9 @@ img {
     background: white;
     border: 1px solid #ddd;
     border-radius: 5px;
-    width: 80%;
+    width: 33%;
     max-height: 200px;
-    overflow-y: auto;
-    z-index: 1000;
+    z-index: 100;
     padding: 10px;
 }
 
@@ -222,4 +221,8 @@ img {
 #messages ul {
     background-color: #4CAF50;
     color: white;
+}
+
+.about_img{
+    width: 49%;
 }
