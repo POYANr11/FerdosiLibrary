@@ -20,8 +20,6 @@
                         {% if user.is_superuser %}
                             <li><a href="/admin">پنل ادمین</a></li>
                         {% endif %}
-                        <li><a href="{% url 'home' %}">صفحه اصلی</a></li>
-                        <li><a href="{% url 'about' %}">درباره ما</a></li>
                         <li><a href="{% url 'book_request' %}">درخواست کتاب</a></li>
                         <li><a href="{% url 'books' %}">کتاب‌ها</a></li>
                     </ul>

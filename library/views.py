@@ -9,18 +9,8 @@ from .models import Book
 from .forms import *
 
 
-class HomeView(TemplateView):
-    template_name = "home.html"
-
-    def get(self, request, *args, **kwargs):
-        if request.headers.get('x-requested-with') == 'XMLHttpRequest':
-            query = request.GET.get('q', '')
-            books = Book.objects.filter(
-                Q(title__icontains=query) | Q(author__name__icontains=query)
-            )
-            results = list(books.values('id', 'title', 'author__name'))
-            return JsonResponse({'results': results})
-        return super().get(request, *args, **kwargs)
+# class HomeView(TemplateView):
+#     template_name = "home.html"
 
 
 class AboutView(TemplateView):
@@ -74,3 +64,7 @@ class BookSearchAjaxView(View):
             ).filter(Q(status='a')).values('id', 'title', 'author__name')
             return JsonResponse({'results': list(books)}, safe=False)
         return JsonResponse({'results': []})
+
+
+class HomeView(TemplateView):
+    template_name = "menu.html"
