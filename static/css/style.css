@@ -4,6 +4,11 @@ body {
     direction: rtl;
     background-color: #f9f9f9;
     color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Vazir', sans-serif;
 }
 
 header {
@@ -226,52 +231,43 @@ img {
 .about_img{
     width: 49%;
 }
-.button-container{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    opacity: 0;
-    animation: fadein 2s forwards;
-}
 
-.animated-btn{
-    padding: 15px 30px;
+/* استایل دکمه‌ها */
+.custom-btn {
+    display: inline-block;
+    padding: 12px 25px;
     font-size: 16px;
-    background: #4CAF50 ;
-    color: white;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: #4CAF50;
+    border-radius: 8px;
     border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transform: translateY(50px);
-    opacity: 0;
-    animation: slideup 1s forwards;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-animated-btn:nth-child(1){
-    animation-delay: 0.5s;
+/* حالت hover */
+.custom-btn:hover {
+    background-color: #45a049; /* تغییر رنگ در زمان hover */
+    transform: translateY(-4px); /* جابجایی دکمه به سمت بالا در زمان hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* سایه بیشتر هنگام hover */
 }
 
-animated-btn:nth-child(2){
-    animation-delay: 1s;
+/* حالت فعال (هنگام کلیک) */
+.custom-btn:active {
+    transform: translateY(2px); /* کاهش ارتفاع در زمان کلیک */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-@keyframes fadein {
-    from{
-        opacity: 0;
-    }
-    to{
-        opacity: 1;
-    }
+/* استایل container دکمه‌ها */
+.button-container3 {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* فاصله بین دکمه‌ها */
+    margin-top: 50px;
 }
 
-@keyframes slideup {
-    from{
-        transform: translateY(50px) ;
-        opacity: 0;
-    }
-    to{
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
+
 
