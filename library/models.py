@@ -14,6 +14,7 @@ class Book(models.Model):
     year = models.IntegerField()
     category = models.ForeignKey('Category', on_delete=models.CASCADE)
     status = models.CharField(max_length=10, choices=LOAN_STATUS, default='a')
+    count = models.IntegerField(default=1)
 
     def __str__(self):
         return self.title

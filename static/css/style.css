@@ -1,13 +1,7 @@
 body {
-    margin: 0;
-    padding: 0;
     direction: rtl;
     background-color: #f9f9f9;
     color: #333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
     font-family: 'Vazir', sans-serif;
 }
 
@@ -232,7 +226,6 @@ img {
     width: 49%;
 }
 
-/* استایل دکمه‌ها */
 .custom-btn {
     display: inline-block;
     padding: 12px 25px;
@@ -248,24 +241,21 @@ img {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* حالت hover */
 .custom-btn:hover {
-    background-color: #45a049; /* تغییر رنگ در زمان hover */
-    transform: translateY(-4px); /* جابجایی دکمه به سمت بالا در زمان hover */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* سایه بیشتر هنگام hover */
+    background-color: #45a049;
+    transform: translateY(-4px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
-/* حالت فعال (هنگام کلیک) */
 .custom-btn:active {
-    transform: translateY(2px); /* کاهش ارتفاع در زمان کلیک */
+    transform: translateY(2px);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-/* استایل container دکمه‌ها */
 .button-container3 {
     display: flex;
     justify-content: center;
-    gap: 20px; /* فاصله بین دکمه‌ها */
+    gap: 20px;
     margin-top: 50px;
 }
 
