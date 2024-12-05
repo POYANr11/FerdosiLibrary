@@ -7,37 +7,48 @@
     <title>{% block title %} کتابخانه{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/fonts.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style2.css' %}">
+{% block head %}
+{% endblock %}
 </head>
 <body>
-    <header>
-        <div class="header-container">
-            <h1>کتابخانه دبیرستان فردوسی</h1>
-        <div class="logo">
-                <img src="{% static 'images/ferdowsi.png' %}" alt="کتابخانه فردوسی" class="logo-img">
-            </div>
-                <nav>
-                    <ul>
-                        {% if user.is_superuser %}
-                            <li><a href="/admin">پنل ادمین</a></li>
-                        {% endif %}
-                        <li><a href="{% url 'book_request' %}">درخواست کتاب</a></li>
-                        <li><a href="{% url 'books' %}">کتاب‌ها</a></li>
-                    </ul>
-                </nav>
-            
-        </div>
-    </header>
-    <main>
-        <ul class="messages">
-            {% for message in messages %}
-                <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-
-            {% endfor %}
+  <header class="header">
+    <div class="container">
+      <nav class="navbar">
+        <a href="#" class="logo">مدرسه ما</a>
+        <ul class="nav-links">
+          <li><a href="#">صفحه اصلی</a></li>
+          <li><a href="{% url 'books' %}">کتابخانه</a></li>
+          <li><a href="#">اخبار و گزارشات</a></li>
+          <li><a href="#">کارکنان</a></li>
         </ul>
-        {% block content %}{% endblock %}
-    </main>
-    <footer>
-        <p>تمام حقوق محفوظ است © ۱۴۰۳</p>
-    </footer>
+      </nav>
+    </div>
+  </header>
+{% block content %}
+{% endblock %}
+<footer class="footer">
+    <div class="container">
+      <div class="footer-columns">
+        <div class="footer-column">
+          <h3>لینک‌های مفید</h3>
+          <ul>
+            <li><a href="#">سامانه آموزشی</a></li>
+            <li><a href="#">تقویم آموزشی</a></li>
+            <li><a href="#">گالری تصاویر</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>تماس با ما</h3>
+          <p>آدرس: تهران، خیابان ...</p>
+          <p>تلفن: 021-12345678</p>
+          <p>ایمیل: info@school.com</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© تمامی حقوق محفوظ است</p>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>

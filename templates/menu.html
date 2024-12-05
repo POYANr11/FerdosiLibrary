@@ -1,25 +1,70 @@
+{% extends 'base.html' %}
 {% load static %}
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>صفحه اصلی</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مدرسه ما</title>
+  <link rel="stylesheet" href="{% static 'css/fonts.css' %}">
+    {% block head %}
+    <link rel="stylesheet" href="{% static 'css/style2.css' %}">
+    {% endblock %}
 </head>
 <body>
-
-    <div class="button-container3">
-        <a href="{% url 'books' %}" class="custom-btn">
-            ورود به کتابخانه
-        </a>
-        <a href="https://example.com/page2" class="custom-btn">
-            اخبار مدرسه
-        </a>
+{% block content %}
+  <!-- Slider -->
+  <section class="slider">
+    <div class="slider-container">
+      <div class="slider-item">
+        <div class="slider-content">
+          <p>افتتاح آزمایشگاه جدید</p>
+        </div>
+      </div>
+      <div class="dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
     </div>
+  </section>
 
+  <!-- Quick Access -->
+  <section class="quick-access">
+    <div class="container">
+      <h2>دسترسی سریع</h2>
+      <div class="cards">
+        <a href="{% url 'books' %}" class="card">
+          <div class="icon">📚</div>
+          <h3>کتابخانه</h3>
+          <p>منابع آموزشی</p>
+        </a>
+        <a href="#" class="card">
+          <div class="icon">📰</div>
+          <h3>اخبار و گزارشات</h3>
+          <p>آخرین رویدادها</p>
+        </a>
+        <a href="#" class="card">
+          <div class="icon">👨‍🏫</div>
+          <h3>کارکنان</h3>
+          <p>معرفی دبیران و کارکنان</p>
+        </a>
+        <a href="#" class="card">
+          <div class="icon">📅</div>
+          <h3>تقویم آموزشی</h3>
+          <p>برنامه‌های مدرسه</p>
+        </a>
+      </div>
+    </div>
+  </section>
+  <section class="about-school">
+    <div class="container">
+      <h2>درباره مدرسه</h2>
+      <p>
+        مدرسه ما همواره در تلاش است تا با بهره‌گیری از روش‌های نوین آموزشی و معلمان مجرب، محیطی پویا برای دانش‌آموزان فراهم کند. هدف ما تربیت دانش‌آموزانی خلاق، مسئولیت‌پذیر و موفق است.
+      </p>
+    </div>
+  </section>
+{% endblock %}
 </body>
 </html>
-
-
-
