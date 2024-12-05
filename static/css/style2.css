@@ -1,0 +1,201 @@
+body, h1, h2, h3, p, ul, li, a {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Vazir', sans-serif;
+  line-height: 1.6;
+  background-color: #f9f9f9;
+  color: #333;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Header */
+.header {
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+}
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+}
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+.nav-links li {
+  margin: 0 15px;
+}
+.nav-links a {
+  color: #333;
+  font-weight: bold;
+}
+.logo {
+  color: #007bff;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Slider */
+.slider {
+  background-color: #eee;
+  padding: 20px 0;
+  text-align: center;
+}
+.slider-container {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: #ccc;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.slider-item {
+  padding: 100px 20px;
+  position: relative;
+}
+.slider-content {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  color: #fff;
+  font-size: 18px;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 5px;
+}
+.dots {
+  margin-top: 10px;
+}
+.dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  background-color: #ddd;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.dot.active {
+  background-color: #007bff;
+}
+
+/* Quick Access */
+.quick-access {
+  padding: 30px 0;
+}
+.quick-access h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #007bff;
+}
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.card {
+  background-color: #fff;
+  width: 200px;
+  padding: 20px;
+  margin: 10px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+}
+.card .icon {
+  font-size: 40px;
+  margin-bottom: 10px;
+  color: #007bff;
+}
+.card h3 {
+  margin-bottom: 5px;
+  font-size: 18px;
+}
+.card p {
+  color: #555;
+}
+
+.about-school {
+  background-color: #fff;
+  padding: 20px 0;
+  margin-top: 20px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.about-school h2 {
+  color: #007bff;
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+.about-school p {
+  color: #555; /* تغییر رنگ متن به خاکستری خواناتر */
+  font-size: 16px;
+  line-height: 1.8;
+  margin: 0 20px;
+}
+
+/* Footer */
+.footer {
+  background-color: #f9f9f9;
+  padding: 20px 0;
+  border-top: 1px solid #ddd;
+  margin-top: 20px;
+}
+.footer-columns {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.footer-column {
+  width: 45%;
+  margin-bottom: 20px;
+}
+.footer-column h3 {
+  color: #007bff;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+.footer-column ul li {
+  margin-bottom: 5px;
+}
+.footer-column ul li a {
+  color: #555; /* رنگ لینک‌ها */
+  font-size: 14px;
+  text-decoration: none;
+}
+.footer-column ul li a:hover {
+  color: #007bff;
+  text-decoration: underline;
+}
+.footer-column p {
+  color: #555;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.footer-bottom {
+  text-align: center;
+  padding: 10px 0;
+  color: #777;
+  font-size: 14px;
+}
