@@ -145,7 +145,7 @@ img {
 
 .book-box {
     background-color: white;
-    border: 1px solid #ddd;
+    border: 1px solid #007bff;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -180,12 +180,11 @@ img {
 .book-status {
     font-size: 14px;
     margin: 5px 0;
-    color: #666;
 }
 
 #detail_button{
     text-decoration-line: none;
-    color: #4CAF50;
+    color: #007bff;
 }
 
 .search-results {
