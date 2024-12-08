@@ -28,8 +28,20 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 60px;
   padding: 15px 0;
 }
+
+.logo-allah{
+flex: 1;
+  text-align: center;
+}
+
+.logo-allah img{
+  max-height: 50px;
+  height: auto;
+}
+
 .nav-links {
   display: flex;
   list-style: none;
