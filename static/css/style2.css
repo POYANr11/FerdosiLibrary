@@ -59,49 +59,80 @@ flex: 1;
   font-weight: bold;
 }
 
-/* Slider */
+/* General Styling */
+body {
+  font-family: 'Vazir', sans-serif; /* برای استفاده از فونت اصلی سایت */
+  margin: 0;
+  padding: 0;
+}
+
 .slider {
-  background-color: #eee;
-  padding: 20px 0;
-  text-align: center;
-}
-.slider-container {
   position: relative;
-  max-width: 1000px;
+  width: 100%;
+  max-width: 400px; /* کوچک‌تر کردن عرض کلی اسلاید */
   margin: 0 auto;
-  background-color: #ccc;
-  border-radius: 10px;
-  overflow: hidden;
+  overflow: hidden; /* از نمایش خارج از کادر جلوگیری می‌کند */
+  border-radius: 10px; /* گوشه‌های اسلاید به صورت گرد */
 }
+
+.slider-container {
+  display: flex;
+  transition: transform 0.5s ease-in-out; /* انیمیشن تغییر موقعیت با زمان کم */
+}
+
 .slider-item {
-  padding: 100px 20px;
-  position: relative;
+  width: 100%;
+  flex-shrink: 0; /* از کوچک شدن تصویر جلوگیری می‌کند */
 }
-.slider-content {
+
+.slider-item img {
+  width: 100%; /* تصویر به طور کامل عرض کادر را پر می‌کند */
+  height: 200px; /* ارتفاع تصویر کوچکتر شده */
+  object-fit: cover; /* نگه داشتن نسبت تصویر و برش اتوماتیک */
+  border-radius: 10px;
+}
+
+/* Hide all images except the selected one */
+input[type="radio"] {
+  display: none;
+}
+
+/* تغییر مکان تصاویر با استفاده از radio */
+#slide1:checked ~ .slider-container {
+  transform: translateX(0); /* اسلاید اول */
+}
+
+#slide2:checked ~ .slider-container {
+  transform: translateX(-100%); /* اسلاید دوم */
+}
+
+#slide3:checked ~ .slider-container {
+  transform: translateX(-200%); /* اسلاید سوم */
+}
+
+/* Dots for navigation */
+.dots {
   position: absolute;
   bottom: 10px;
-  right: 10px;
-  color: #fff;
-  font-size: 18px;
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 10px;
-  border-radius: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
 }
-.dots {
-  margin-top: 10px;
-}
+
 .dot {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
+  width: 8px; /* کاهش اندازه دایره‌ها */
+  height: 8px; /* کاهش اندازه دایره‌ها */
   margin: 0 5px;
   background-color: #ddd;
   border-radius: 50%;
   cursor: pointer;
 }
-.dot.active {
-  background-color: #007bff;
+
+input[type="radio"]:checked + .slider-container + .dots .dot {
+  background-color: #007bff; /* تغییر رنگ دایره فعال */
 }
+
 
 /* Quick Access */
 .quick-access {

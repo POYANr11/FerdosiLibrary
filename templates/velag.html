@@ -3,38 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>صفحه مقالات و اخبار</title>
+    <title>اخبار و مقالات</title>
     <style>
-        body {
-            font-family: Tahoma, Geneva, sans-serif;
-            direction: rtl;
-            text-align: center;
-            background-color: #f4f4f4;
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
-        .container {
-            max-width: 800px;
-            margin: 50px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
+        body {
+            font-family: 'Vazir', sans-serif;
+            line-height: 1.6;
+            background-color: #f9f9f9;
             color: #333;
         }
-        p {
-            color: #555;
-            font-size: 18px;
+        #main-container {
+            display: grid;
+            place-items: center; /* وسط‌چین هم عمودی و هم افقی */
+            height: 100vh;
+            margin: 0;
+        }
+
+        #article-content {
+            text-align: center;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        #future-message {
+            font-size: 24px;
+            color: #007bff;
+            word-wrap: break-word;
             line-height: 1.6;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>مقالات و اخبار</h1>
-        <p>در حال حاضر مقالات و اخبار در این صفحه قرار خواهند گرفت. لطفاً برای مشاهده مطالب جدید در آینده به این صفحه مراجعه کنید.</p>
+    <div id="main-container">
+        <div id="article-content">
+            <h1 id="future-message">اخبار و مقالات در آینده در این صفحه قرار می‌گیرد</h1>
+        </div>
     </div>
 </body>
 </html>
