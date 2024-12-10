@@ -16,11 +16,11 @@
     <div class="container">
       <nav class="navbar">
           <div class="navbar-left"></div>
-          <div class="logo-allah">
-              <img src="{% static 'images/allah.svg' %}" alt="allah logo">
-          </div>
               <div class="navbar-right"></div>
         <a href="#" class="logo">مدرسه فردوسی</a>
+       <div class="logo-allah">
+              <img src="{% static 'images/allah.svg' %}" alt="allah logo">
+          </div>
         <ul class="nav-links">
             {% if not user.is_authenticated %}
                 <li><a href="{% url 'login' %}">ورود</a></li>
@@ -30,7 +30,7 @@
             {% endif %}
           <li><a href="{% url 'home' %}">صفحه اصلی</a></li>
           <li><a href="{% url 'books' %}">کتابخانه</a></li>
-          <li><a href="#">اخبار و گزارشات</a></li>
+          <li><a href="{% url '' %}">اخبار و گزارشات</a></li>
           <li><a href="#">کارکنان</a></li>
         </ul>
       </nav>
