@@ -20,8 +20,14 @@
               <img src="{% static 'images/allah.svg' %}" alt="allah logo">
           </div>
               <div class="navbar-right"></div>
-        <a href="#" class="logo">مدرسه ما</a>
+        <a href="#" class="logo">مدرسه فردوسی</a>
         <ul class="nav-links">
+            {% if not user.is_authenticated %}
+                <li><a href="{% url 'login' %}">ورود</a></li>
+            {% endif %}
+            {% if user.is_superuser %}
+                <li><a href="{% url 'home' %}">پنل ادمین</a></li>
+            {% endif %}
           <li><a href="{% url 'home' %}">صفحه اصلی</a></li>
           <li><a href="{% url 'books' %}">کتابخانه</a></li>
           <li><a href="#">اخبار و گزارشات</a></li>

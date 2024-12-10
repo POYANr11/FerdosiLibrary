@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from library.views import *
+from attendance.views import *
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -27,6 +28,7 @@ urlpatterns = [
     path("book_request/", BookRequestView.as_view(), name="book_request"),
     path("login/", CustomLoginView.as_view(), name="login"),
     path('search-books/', BookSearchAjaxView.as_view(), name='search-books'),
+    path('attendance/', mark_attendance, name='mark_attendance'),
 ]
 
 

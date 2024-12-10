@@ -60,7 +60,7 @@ h2 {
     padding: 10px;
     font-size: 16px;
     text-align: center;
-    background-color: #4CAF50;
+    background-color: #007bff;
     color: white;
     border: none;
     border-radius: 5px;
@@ -68,9 +68,9 @@ h2 {
 }
 
 .btn:hover {
-    background-color: #45a049;
+    background-color: #007bff;
     color: black;
-    transition: color 500ms;
+    transition: color 300ms;
 }
 
 input[type="password"],
@@ -81,7 +81,7 @@ select {
     width: 100%;
     padding: 10px;
     margin: 10px 0 20px;
-    border: 1px solid #ccc;
+    border: 1px solid #007bff;
     border-radius: 5px;
     box-sizing: border-box;
     font-size: 16px;
@@ -94,13 +94,13 @@ input[type="text"]:focus,
 input[type="number"]:focus,
 textarea:focus,
 select:focus {
-    border-color: #4CAF50;
+    border-color: #007bff;
     outline: none;
-    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+    box-shadow: 0 0 5px #044b9c;
 }
 
 button {
-    background-color: #4CAF50;
+    background-color: #007bff;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -112,7 +112,7 @@ button {
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #007bff;
 }
 
 input[type="text"].error,
@@ -211,13 +211,12 @@ img {
 }
 
 .search-results li:hover {
-    background: #4CAF50;
     color: white;
     cursor: pointer;
 }
 
 #messages ul {
-    background-color: #4CAF50;
+    background-color: #007bff;
     color: white;
 }
 
@@ -233,7 +232,7 @@ img {
     text-align: center;
     text-decoration: none;
     color: #fff;
-    background-color: #4CAF50;
+    background-color: #007bff;
     border-radius: 8px;
     border: none;
     transition: background-color 0.3s ease, transform 0.2s ease;
@@ -241,7 +240,7 @@ img {
 }
 
 .custom-btn:hover {
-    background-color: #45a049;
+    background-color: #007bff;
     transform: translateY(-4px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }

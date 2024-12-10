@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     "library.apps.LibraryConfig",
     "blog.apps.BlogConfig",
     "main.apps.MainConfig",
-    "user.apps.UserConfig"
+    "user.apps.UserConfig",
+    "attendance.apps.AttendanceConfig",
 ]
 
 MIDDLEWARE = [
