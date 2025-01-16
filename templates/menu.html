@@ -13,21 +13,36 @@
 </head>
 <body>
 {% block content %}
-  <!-- Slider -->
-  <section class="slider">
-    <div class="slider-container">
-      <div class="slider-item">
-        <div class="slider-content">
-          <p>افتتاح آزمایشگاه جدید</p>
-        </div>
-      </div>
-      <div class="dots">
-        <span class="dot active"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-      </div>
+ <section class="slider">
+  <div class="slider-container">
+    <input type="radio" name="slider" id="slide1" checked>
+    <input type="radio" name="slider" id="slide2">
+    <input type="radio" name="slider" id="slide3">
+
+    <div class="slider-item">
+      <label for="slide1" class="slider-label">
+        <img src="{% static 'images/about_imgs/f_d.jpg' %}" alt="Slider Image 1">
+      </label>
     </div>
-  </section>
+    <div class="slider-item">
+      <label for="slide2" class="slider-label">
+        <img src="{% static 'images/about_imgs/f_f.jpg' %}" alt="Slider Image 2">
+      </label>
+    </div>
+    <div class="slider-item">
+      <label for="slide3" class="slider-label">
+        <img src="{% static 'images/about_imgs/f_drakht.jpg' %}" alt="Slider Image 3">
+      </label>
+    </div>
+
+    <div class="dots">
+      <label for="slide1" class="dot"></label>
+      <label for="slide2" class="dot"></label>
+      <label for="slide3" class="dot"></label>
+    </div>
+  </div>
+</section>
+
 
   <!-- Quick Access -->
   <section class="quick-access">
