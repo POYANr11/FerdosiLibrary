@@ -16,17 +16,18 @@
     <div class="container">
       <nav class="navbar">
           <div class="navbar-left"></div>
-          <div class="logo-allah">
-              <img src="{% static 'images/allah.svg' %}" alt="allah logo">
-          </div>
+          
               <div class="navbar-right"></div>
-        <a href="#" class="logo">مدرسه فردوسی</a>
+        <a href="" class="logo">مدرسه فردوسی</a>
+        <div class="logo-allah">
+            <img src="{% static 'images/allah.svg' %}" alt="allah logo">
+        </div>
         <ul class="nav-links">
             {% if not user.is_authenticated %}
                 <li><a href="{% url 'login' %}">ورود</a></li>
             {% endif %}
             {% if user.is_superuser %}
-                <li><a href="{% url 'home' %}">پنل ادمین</a></li>
+                <li><a href="/admin/">پنل ادمین</a></li>
             {% endif %}
           <li><a href="{% url 'home' %}">صفحه اصلی</a></li>
           <li><a href="{% url 'books' %}">کتابخانه</a></li>
@@ -51,9 +52,9 @@
         </div>
         <div class="footer-column">
           <h3>تماس با ما</h3>
-          <p>آدرس: تهران، خیابان ...</p>
-          <p>تلفن: 021-12345678</p>
-          <p>ایمیل: info@school.com</p>
+          <p>آدرس:</p>
+          <p>تلفن:</p>
+          <p>ایمیل:</p>
         </div>
       </div>
       <div class="footer-bottom">

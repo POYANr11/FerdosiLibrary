@@ -7,9 +7,10 @@ from django.contrib.auth.models import User
 @api_view(['POST'])
 def mark_attendance(request):
     card_id = request.data.get('card_id')
+    print(card_id)
     try:
         employee = User.objects.get(username=card_id)
-        Attendance.objects.create(employee=employee)
+        Attendance.objects.create(User=employee)
         return Response({"status": "success", "message": "ba movafaghiyat anjam shod!"})
     except User.DoesNotExist:
         return Response({"status": "error", "message": "user peyda nashod"}, status=404)

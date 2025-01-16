@@ -42,6 +42,9 @@ INSTALLED_APPS = [
     "main.apps.MainConfig",
     "user.apps.UserConfig",
     "attendance.apps.AttendanceConfig",
+    "ckeditor",
+    "ckeditor_uploader",
+
 ]
 
 MIDDLEWARE = [
@@ -130,3 +133,7 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
+CKEDITOR_UPLOAD_PATH = "uploads/"
