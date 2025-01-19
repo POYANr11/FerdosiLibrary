@@ -22,6 +22,12 @@ class Category(models.Model):
 
 
 class Post(models.Model):
+    STATUS_CHOICES = [
+        ('draft', 'Draft'),
+        ('published', 'Published'),
+        ('archived', 'Archived'),
+    ]
+
     title = models.CharField(max_length=200)
     body = RichTextField()
     author = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -32,6 +38,7 @@ class Post(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     tags = models.ManyToManyField(Tag, blank=True)
     views = models.PositiveIntegerField(default=0)
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='draft')
 
     def __str__(self):
         return self.title
@@ -39,12 +46,13 @@ class Post(models.Model):
 
 class Comment(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comments")
     body = models.TextField()
     date_posted = models.DateTimeField(default=timezone.now)
+    is_active = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.body
+        return f" {self.author.name} - {self.body}"
 
 
 class Like(models.Model):
